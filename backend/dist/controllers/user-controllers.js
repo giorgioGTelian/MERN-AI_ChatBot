@@ -1,6 +1,8 @@
+import User from "../models/Users.js";
 export const getAllUsers = async (req, res, next) => {
     try {
         //get all users
+        const users = await User.find();
         return res.status(200).json({ message: "OK", users: [] });
     }
     catch (error) {
