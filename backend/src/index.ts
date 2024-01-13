@@ -1,4 +1,3 @@
-import express from "express";
 import { config } from "dotenv";
 import app from "./app.js";
 import { connectToDatabase } from "./db/connection.js";
@@ -15,12 +14,8 @@ connectToDatabase()
 
 //config
 /*todo  */
-// GET /api/products
-// GET /api/products/:id
-// POST /api/products
-// PUT /api/products/:id
-// DELETE /api/products/:id
-// GET /api/products/:id/reviews
+config();
+
 console.log(
   "do not give up. With 💓 By Gio"
 );
