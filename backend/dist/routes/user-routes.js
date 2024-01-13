@@ -1,10 +1,8 @@
 import { Router } from "express";
-import { getAllUsers } from "../controllers/user-controllers.js";
-
+import { getAllUsers, userSignup } from "../controllers/user-controllers.js";
 const userRoutes = Router();
-
 userRoutes.get("/", getAllUsers);
-
+userRoutes.post("/signup", userSignup);
 export default userRoutes;
 /*import {
     getAllUsers,
@@ -28,4 +26,5 @@ userRoutes.post("/login", validate(loginValidator), userLogin);
 userRoutes.get("/auth-status", verifyToken, verifyUser);
 userRoutes.get("/logout", verifyToken, userLogout);
 
-export default userRoutes;*/
+export default userRoutes;*/ 
+//# sourceMappingURL=user-routes.js.map

@@ -10,6 +10,17 @@ export const getAllUsers = async (req, res, next) => {
         return res.status(200).json({ message: "Errore boss", cause: error.message });
     }
 };
+export const userSignup = async (req, res, next) => {
+    try {
+        //get all users
+        const users = await User.find();
+        return res.status(200).json({ message: "OK funziona", users: [] });
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(200).json({ message: "Errore boss", cause: error.message });
+    }
+};
 /*
 import { NextFunction, Request, Response } from "express";
 import User from "../models/User.js";

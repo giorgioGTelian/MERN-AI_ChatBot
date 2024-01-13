@@ -63,8 +63,8 @@
     "noImplicitUseStrict": false
   },
   "include": [
-    "frontend/**/*",
-    "src/**/*" // Add a valid input file or directory path here
+    "frontend",
+    "src" // Add a valid input file or directory path here
   ],
   "exclude": [
     "frontend/generated/jar-resources/**"
