@@ -3,6 +3,7 @@ export const validate = (validations) => {
     return async (req, res, next) => {
         for (let validation of validations) {
             const result = await validation.run(req);
+            console.log(result);
             if (!result.isEmpty()) {
                 break;
             }
@@ -26,7 +27,6 @@ export const signupValidator = [
     ...loginValidator,
 ];
 export const chatCompletionValidator = [
-    body("chatId").notEmpty().withMessage("ChatId is required"),
     body("message").notEmpty().withMessage("Message is required"),
 ];
 //# sourceMappingURL=validators.js.map

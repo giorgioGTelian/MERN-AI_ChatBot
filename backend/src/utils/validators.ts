@@ -5,6 +5,7 @@ export const validate = (validations: ValidationChain[]) => {
     return async (req: Request, res: Response, next: NextFunction) => {
     for (let validation of validations) {
         const result = await validation.run(req);
+        console.log(result);
         if (!result.isEmpty()) {
             break;
             }
@@ -31,6 +32,5 @@ export const signupValidator = [
 ];
 
 export const chatCompletionValidator = [
-    body("chatId").notEmpty().withMessage("ChatId is required"),
     body("message").notEmpty().withMessage("Message is required"),
 ];
