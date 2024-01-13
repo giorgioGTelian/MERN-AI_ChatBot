@@ -1,4 +1,5 @@
 import User from "../models/Users.js";
+import { hash } from "bcrypt";
 export const getAllUsers = async (req, res, next) => {
     try {
         //get all users
@@ -12,9 +13,15 @@ export const getAllUsers = async (req, res, next) => {
 };
 export const userSignup = async (req, res, next) => {
     try {
-        //get all users
-        const users = await User.find();
-        return res.status(200).json({ message: "OK funziona", users: [] });
+        //user signup
+        const { name, email, password } = req.body;
+        const hashedPassword = await hash(password, 10);
+        const existingUser = await User.findOne({ email });
+        if (existingUser)
+            return res.status(401).send("User already registered");
+        const user = new User({ name, email, password: hashedPassword });
+        await user.save();
+        return res.status(200).json({ message: "OK funziona", user });
     }
     catch (error) {
         console.log(error);
